@@ -3,27 +3,39 @@ package com.masai.entity;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Faculty extends AdminFunction implements Serializable {
+public class Faculty  implements Serializable {
 
 	private int id ;
 	private String name ;
 	private String userName ;
-	private String password ;
+	
+	private String batches;
+private String description; 
 	
 	public Faculty()
 	{
-		
+		super();
 	}
 
-	public Faculty(int batchId, String courseName, int numberOfSeats, int duration, LocalDate sDate) {
-		super(batchId, courseName, numberOfSeats, duration, sDate);
-		// TODO Auto-generated constructor stub
+	
+	public Faculty(int id, String name, String userName, String batches, String description) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.userName = userName;
-		this.password = password;
+		this.batches = batches;
+		this.description = description;
 	}
 
+
+	public void setBatches(String batches)
+	{
+		this.batches=batches;
+	}
+	public String getBatches()
+	{
+		return this.batches;
+	}
 	public int getId() {
 		return id;
 	}
@@ -48,17 +60,14 @@ public class Faculty extends AdminFunction implements Serializable {
 		this.userName = userName;
 	}
 
-	public String getPassword() {
-		return password;
-	}
+	
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Faculty [id=" + id + ", name=" + name + ", userName=" + userName + ", password=" + password + "]";
+		return "Faculty [id=" + id + ", name=" + name + ", userName=" + userName + ", batches=" + batches
+				+ ", description=" + description + "]";
 	}
 
 	

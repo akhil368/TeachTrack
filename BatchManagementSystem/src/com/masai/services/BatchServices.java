@@ -1,6 +1,8 @@
 package com.masai.services;
 
 import com.masai.entity.*;
+import com.masai.exceptions.BatchException;
+
 import java.util.*;
 
 
@@ -8,17 +10,17 @@ public interface BatchServices {
 
 	public String createBatch(Batch b,Map<Integer,Batch> batches );
 	
-	public String updateBatch(int id,Batch b,Map<Integer,Batch> batches);
+	public String updateBatch(int id,Batch b,Map<Integer,Batch> batches) throws BatchException;
 	
 	
-	public String assignBacth(int id);
+	public String assignBatch(int id) throws BatchException;
 	
-	public String viewBatch(int id);
+	public Batch viewBatch(int id, Batch b, Map<Integer, Batch> batches) throws BatchException;
 	
-	public String viewBatchByFaciltyId(int id);
+	public String viewBatchByFaciltyId(int id) throws BatchException;
 	
-	public String viewAllBatch(Map<Integer,Batch> batches);
+	public void viewAllBatch(Map<Integer,Batch> batches) throws BatchException;
 	
-	public String delete(int id,Batch b, Map<Integer,Batch> batches);
+	public void delete(int id,Batch b, Map<Integer,Batch> batches) throws BatchException;
 	
 }

@@ -7,6 +7,7 @@ public class User implements Serializable{
 	private String userName;
 	private String password;
 	private String fullName;
+	private String email ;
 	
 	public User()
 	{
@@ -47,5 +48,5 @@ public class User implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	private String email;
+	
 }

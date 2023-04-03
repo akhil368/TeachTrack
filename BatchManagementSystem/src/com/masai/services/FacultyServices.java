@@ -7,21 +7,21 @@ import java.util.*;
 
 public interface FacultyServices {
 
-	
+
 
 	
 	
 	
 	
-	public boolean login(String email,String password, Map<String, Faculty> faculty) throws InvalidDetailException;
+	public boolean login(int id,String email,String password, Map<Integer, Faculty> faculty) throws InvalidDetailException;
 
-	public void signUp(Faculty cus, Map<String, Faculty> faculty) throws DuplicateDataException;
+	public void signUp(Faculty cus, Map<Integer, Faculty> faculty) throws DuplicateDataException;
 	
 	
-	public Batch viewBatch(int id,Faculty f, Map<Integer,Faculty> faculty) throws FacultyException;
+	public Faculty viewBatch(int id,Faculty f, Map<Integer,Faculty> faculty) throws FacultyException;
 	
 
-	
+	public String assignBatch(int id,int batchId,Map<Integer, Faculty> faculty,Map<Integer, Batch> batches) throws FacultyException,BatchException, NullArgumentException ;
 	
 	
 	public void delete(int id,Faculty f, Map<Integer,Faculty> faculty) throws FacultyException;

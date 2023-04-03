@@ -2,6 +2,7 @@ package com.masai.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Faculty  implements Serializable {
 
@@ -9,9 +10,9 @@ public class Faculty  implements Serializable {
 	private String name ;
 	private String userName ;
 	private String password;
-	private Batch b;
-	private String batches;
-private String description; 
+	private ArrayList<Batch> b;
+	
+
 	
 	public Faculty()
 	{
@@ -19,16 +20,24 @@ private String description;
 	}
 
 	
-	public Faculty(int id, String name, String userName, String batches, String description,Batch b,String password) {
+	public Faculty(int id, String name, String userName,ArrayList<Batch> b,String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.userName = userName;
-		this.batches = batches;
-		this.description = description;
 		this.b=b;
 		this.password=password;
 	}
+	public Faculty(int id, String name, String userName,String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.userName = userName;
+		
+		
+		this.password=password;
+	}
+
 
 
 	public void setPassword(String password)
@@ -39,48 +48,25 @@ private String description;
 	{
 		return this.password;
 	}
-	public void setBatches(String batches)
-	{
-		this.batches=batches;
-	}
-	public String getBatches()
-	{
-		return this.batches;
-	}
-	public Faculty(int id, String name, String userName, Batch b, String batches, String description) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.userName = userName;
-		this.b = b;
-		this.batches = batches;
-		this.description = description;
-	}
+	
+	
 
 
 	public int getId() {
 		return id;
 	}
 
-	public Batch getB() {
+	public ArrayList<Batch> getB() {
 		return b;
 	}
 
 
 	public void setB(Batch b) {
-		this.b = b;
+		this.b.add(b);
 	}
 
 
-	public String getDescription() {
-		return description;
-	}
-
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
+	
 
 	public void setId(int id) {
 		this.id = id;
@@ -105,8 +91,8 @@ private String description;
 	
 	@Override
 	public String toString() {
-		return "Faculty [id=" + id + ", name=" + name + ", userName=" + userName + ", b=" + b + ", batches=" + batches
-				+ ", description=" + description + "]";
+		return "Faculty [id=" + id + ", name=" + name + ", userName=" + userName + ", password=" + password + ", b=" + b
+				+ "]";
 	}
 
 	

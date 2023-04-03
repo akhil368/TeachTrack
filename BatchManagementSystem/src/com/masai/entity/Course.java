@@ -3,13 +3,13 @@ package com.masai.entity;
 public class Course {
 	private String name;
 	private String description;
-	private String code;
+	private int code;
 	
 	public Course()
 	{
 		super();
 	}
-	public Course(String name, String description, String code) {
+	public Course(String name, String description, int code) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -27,10 +27,10 @@ public class Course {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 	@Override

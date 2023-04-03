@@ -1,57 +1,66 @@
 package com.masai.entity;
-
+import java.time.temporal.ChronoUnit;
 
 import com.masai.exceptions.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Batch implements Serializable{
 
 	private int batchId ;
-	private Course course;
-	private HashMap<Integer ,Faculty> assignedFaculty=new HashMap<>();
-	private String courseName ;
+	private String bName;
+	private String course;
+
+	private ArrayList<Faculty> b;
+	
 	private int numberOfSeats ;
 	private long duration ; 
 	private LocalDate sDate ;
-	private LocalDate edate;
-	public Batch(int batchId, String courseName, int numberOfSeats, int duration, LocalDate sDate) {
-		super();
-		this.batchId = batchId;
-		this.courseName = courseName;
-		this.numberOfSeats = numberOfSeats;
-		this.duration = duration;
-		this.sDate = sDate;
-	}
-	 public HashMap<Integer, Faculty> getAssignedFaculties() {
-	        return assignedFaculty;
-	    }
-	public void addFaculties(Faculty... faculties) throws NullArgumentException {
-        for(Faculty faculty : faculties) {
-            if(faculty == null)
-                throw new NullArgumentException("Cannot add null ");
-        }
-
-        for(Faculty faculty : faculties) {
-        	assignedFaculty.put(faculty.getId(), faculty);
-        }
-    }
+	private LocalDate eDate;
+	
+	
 	public Batch()
 	{
 		super();
 	}
+	public Batch(String bName,int batchId,  String course,int numberOfSeats, LocalDate sDate,LocalDate eDate,long duration) {
+		super();
+		this.bName=bName;
+		this.batchId = batchId;
+		this.course=course;
+		this.numberOfSeats = numberOfSeats;
+		this.duration = duration;
+		this.sDate = sDate;
+		this.eDate=eDate;
+	}
+	
+	public ArrayList<Faculty> getAssignedFaculties() {
+	        return b;
+	    }
+	public void addFaculties(Faculty b) throws NullArgumentException {
+       this.b.add(b);
+    }
+	
+	
 	public int getBatchId() {
 		return batchId;
 	}
 	public void setBatchId(int batchId) {
 		this.batchId = batchId;
 	}
-	public String getCourseName() {
-		return courseName;
+	public String getbName() {
+		return bName;
 	}
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
+	public void setbName(String bName) {
+		this.bName = bName;
+	}
+	public String getCourse() {
+		return course;
+	}
+	public void setCourse(String course) {
+		this.course = course;
 	}
 	public int getNumberOfSeats() {
 		return numberOfSeats;
@@ -62,7 +71,7 @@ public class Batch implements Serializable{
 	public long getDuration() {
 		return duration;
 	}
-	public void setDuration(int duration) {
+	public void setDuration(long duration) {
 		this.duration = duration;
 	}
 	public LocalDate getsDate() {
@@ -71,11 +80,20 @@ public class Batch implements Serializable{
 	public void setsDate(LocalDate sDate) {
 		this.sDate = sDate;
 	}
+	public LocalDate geteDate() {
+		return eDate;
+	}
+	public void seteDate(LocalDate eDate) {
+		this.eDate = eDate;
+	}
 	@Override
 	public String toString() {
-		return "Batch [batchId=" + batchId + ", courseName=" + courseName + ", numberOfSeats=" + numberOfSeats
-				+ ", duration=" + duration + ", sDate=" + sDate + "]";
+		return "Batch [batchId=" + batchId + ", bName=" + bName + ", course=" + course + ", b=" + b + ", numberOfSeats="
+				+ numberOfSeats + ", duration=" + duration + ", sDate=" + sDate + ", eDate=" + eDate + "]";
 	}
+	
+	
+	
 	
 	
 	

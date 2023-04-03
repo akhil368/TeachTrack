@@ -35,13 +35,33 @@ public class BatchServiceImpl implements BatchServices {
 	}
 
 	@Override
-	public String assignBatch(int id) {
+	public String assignBatch(int id,int batchId,Map<Integer, Faculty> faculty,Map<Integer, Batch> batches) throws FacultyException,BatchException {
 		// TODO Auto-generated method stub
-		return null;
+		if(faculty!=null && faculty.size()>0 )
+		{
+			if( batches!=null && batches.size()>0 )
+			try {
+				Faculty f=faculty.get(id);
+				Batch b=batches.get(batchId);
+				b.addFaculties(f);
+				return ("Batch is Successfully Assigned ");
+			} catch (NullArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			else {
+				throw new BatchException("Batch is not available");
+			}
+		}
+		else {
+			throw new FacultyException("Faculty or Batch with entered id is not Available");
+		}
+		return "Faculty or Batch with entered id is not Available";
+		
 	}
 
 	@Override
-	public Batch viewBatch(int id, Batch b, Map<Integer, Batch> batches) throws BatchException{
+	public Batch viewBatchByBacthId(int id, Batch b, Map<Integer, Batch> batches) throws BatchException{
 		if(batches!=null && batches.size()>0)
 		{
 			if(batches.containsKey(id))
@@ -59,9 +79,21 @@ public class BatchServiceImpl implements BatchServices {
 	}
 
 	@Override
-	public String viewBatchByFaciltyId(int id) {
+	public Faculty viewBatchByFaciltyId(int id,Batch b,Map<Integer,Faculty> faculty) throws FacultyException{
 		// TODO Auto-generated method stub
-		return null;
+		if(faculty!=null && faculty.size()>0)
+		{
+			if(faculty.containsKey(id))
+			{
+				return faculty.get(id);
+			}
+			else {
+				throw new FacultyException("Batch not found");
+			}
+		}
+		else {
+			throw new FacultyException("Batch list is Empty");
+		}
 	}
 
 	@Override
@@ -81,14 +113,14 @@ public class BatchServiceImpl implements BatchServices {
 	}
 
 	@Override
-	public void delete(int id, Batch b, Map<Integer, Batch> batches) throws BatchException{
+	public void delete(int id, Map<Integer, Batch> batches) throws BatchException{
 		// TODO Auto-generated method stub
 		if(batches!=null && batches.size()>0)
 		{
 			if(batches.containsKey(id))
 			{
-				batches.remove(id, b);
-				System.out.println( "Batch has been succesfully updated");
+				batches.remove(id);
+				System.out.println( "Batch has been succesfully Deleted");
 			}
 			else {
 				throw new BatchException("Batch not found");

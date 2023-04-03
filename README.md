@@ -14,8 +14,8 @@ Admin Side:::
 - Delete Batch
 
 Faculty Side ::
--View all the Batches Assigned.
--Delete Faculty
+- View all the Batches Assigned.
+- Delete Faculty
 
 
 ## How to Run:

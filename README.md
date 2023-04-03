@@ -2,6 +2,8 @@
 The Name of this project is Batch Mangement System which is used to manage Batches and Faculty as well.
 
 ## The main functions which this project can performs are:
+
+Admin Side:::
 - create Batch
 - update batch
 - Assign Faculty to Batch
@@ -10,6 +12,12 @@ The Name of this project is Batch Mangement System which is used to manage Batch
 - Assign Batch to Faculty
 - View All Batches
 - Delete Batch
+
+Faculty Side ::
+-View all the Batches Assigned.
+-Delete Faculty
+
+
 ## How to Run:
 - Clone this Repository into your Local Machine.
 - Open a terminal and navigate to the peoject Directory.

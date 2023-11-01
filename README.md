@@ -1,4 +1,4 @@
-# -numerous-bee-5463![TeachTrack (1)](https://user-images.githubusercontent.com/77136397/229471055-a6bcab55-2d4e-4c10-88ac-cd2681675d0b.png)
+# ![TeachTrack (1)](https://user-images.githubusercontent.com/77136397/229471055-a6bcab55-2d4e-4c10-88ac-cd2681675d0b.png)
 The Name of this project is Batch Mangement System which is used to manage Batches and Faculty as well.
 
 ## The main functions which this project can performs are:
